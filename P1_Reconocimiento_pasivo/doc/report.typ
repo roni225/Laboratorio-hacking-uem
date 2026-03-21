@@ -1,10 +1,4 @@
-#set document(title: "Prueba de Emergencia")
-#set page(paper: "a4")
-
-= ¡Hola Mundo!
-Si ves este texto, el problema son las imágenes o la bibliografía.
-
-/*#set document(title: "Auditoría OSINT: Endesa", author: "Rodrigo Revuelta Alonso")
+#set document(title: "Auditoría OSINT: Endesa", author: "Rodrigo Revuelta Alonso")
 #set heading(numbering: "1.")
 #show link: set text(fill: blue.darken(20%))
 #show cite: set text(fill: blue.darken(20%))
@@ -126,4 +120,4 @@ La investigación realizada permite concluir que Endesa posee una infraestructur
 == Bibliografía
 
 // Esto vincula tu archivo .bib y hace que las citas sean interactivas
-#bibliography("bibliografia.bib", style: "ieee")*/
+#bibliography("bibliografia.bib", style: "ieee")
