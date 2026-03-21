@@ -1,4 +1,10 @@
-#set document(title: "Auditoría OSINT: Endesa", author: "Rodrigo Revuelta Alonso")
+#set document(title: "Prueba de Emergencia")
+#set page(paper: "a4")
+
+= ¡Hola Mundo!
+Si ves este texto, el problema son las imágenes o la bibliografía.
+
+/*#set document(title: "Auditoría OSINT: Endesa", author: "Rodrigo Revuelta Alonso")
 #set heading(numbering: "1.")
 #show link: set text(fill: blue.darken(20%))
 #show cite: set text(fill: blue.darken(20%))
@@ -51,7 +57,7 @@ A continuación, se detallan los registros analizados y su relevancia en el reco
 El reconocimiento se clasifica según la interacción con el objetivo:
 
 - *Reconocimiento Pasivo:* Se ha realizado consultando bases de datos de terceros y servidores DNS públicos (como 8.8.8.8). Al no realizar consultas directamente a los servidores autoritativos de la empresa, no existe registro de nuestra actividad en sus logs.
-- *Reconocimiento Activo:* Acciones como la **Transferencia de Zona (AXFR)** o el *fuzzing* de subdominios contra los servidores de la empresa se consideran activas. Estas técnicas han sido descartadas en este trabajo para cumplir con el código ético y las restricciones de la práctica.
+- *Reconocimiento Activo:* Acciones como la Transferencia de Zona (AXFR) o el *fuzzing* de subdominios contra los servidores de la empresa se consideran activas. Estas técnicas han sido descartadas en este trabajo para cumplir con el código ético y las restricciones de la práctica.
 
 Mientras que herramientas como dig o nslookup podrían cruzar la línea hacia el reconocimiento activo si se dirigen contra los NS de la empresa, el uso de plataformas como @dnsdumpster garantiza la pasividad al actuar como un intermediario que ya posee los datos indexados.
 
@@ -120,4 +126,4 @@ La investigación realizada permite concluir que Endesa posee una infraestructur
 == Bibliografía
 
 // Esto vincula tu archivo .bib y hace que las citas sean interactivas
-#bibliography("bibliografia.bib", style: "ieee")
+#bibliography("bibliografia.bib", style: "ieee")*/
