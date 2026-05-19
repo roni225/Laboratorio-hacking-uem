@@ -1,0 +1,47 @@
+services:
+  resolver:
+    image: ubuntu/bind9:latest
+    container_name: resolver
+    networks:
+      red_dns:
+        ipv4_address: 192.168.150.10
+    environment:
+      - BIND9_USER=root
+      - TZ=Europe/Madrid
+    volumes:
+      - ./bind/resolver:/etc/bind
+    ports:
+      - "5353:53/udp"
+    command: named -g -c /etc/bind/named.conf
+
+  authns:
+    image: ubuntu/bind9:latest
+    container_name: authns
+    networks:
+      red_dns:
+        ipv4_address: 192.168.150.20
+    environment:
+      - BIND9_USER=root
+      - TZ=Europe/Madrid
+    volumes:
+      - ./bind/authns:/etc/bind
+    command: named -g -c /etc/bind/named.conf
+
+  client:
+    image: ubuntu:22.04
+    container_name: client
+    networks:
+      red_dns:
+        ipv4_address: 192.168.150.30
+    dns:
+      - 192.168.150.10
+    cap_add:
+      - NET_ADMIN
+    command: sleep infinity
+
+networks:
+  red_dns:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.150.0/24
