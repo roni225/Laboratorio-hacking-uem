@@ -1,0 +1,54 @@
+services:
+  victim:
+    image: ubuntu:22.04
+    container_name: victim
+    networks:
+      red_interna:
+        ipv4_address: 192.168.100.10
+    cap_add:
+      - NET_ADMIN
+    command: sleep infinity
+
+  router:
+    image: ubuntu:22.04
+    container_name: router
+    networks:
+      red_interna:
+        ipv4_address: 192.168.100.20
+      red_externa:
+        ipv4_address: 192.168.200.20
+    cap_add:
+      - NET_ADMIN
+    sysctls:
+      - net.ipv4.ip_forward=1
+    command: sleep infinity
+
+  webserver:
+    image: nginx:alpine
+    container_name: webserver
+    networks:
+      red_externa:
+        ipv4_address: 192.168.200.30
+
+  attacker:
+    image: kalilinux/kali-rolling
+    container_name: attacker
+    networks:
+      red_interna:
+        ipv4_address: 192.168.100.99
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    command: sleep infinity
+
+networks:
+  red_interna:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.100.0/24
+  red_externa:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.168.200.0/24
